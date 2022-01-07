@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
-#include <time.h>
 #include "color.h"
 #include "player info.h"
 #include "gamefunction.h"
@@ -74,12 +73,11 @@ int main()
 
             printf(" enter your name: ");
             gets(one.name);
-            strlwr(one.name);
+
             if(mode==2)
             {
                 printf(" \n enter the second name: ");
                 gets(two.name);
-                strlwr(two.name);
             }
             else
                 strcpy(two.name, "computer");
@@ -111,7 +109,7 @@ int main()
                 }
             }
             int totallines = 2*nb*(nb+1),nofmoves=0;
-            int movesplayed[totallines][7];//movesplayed[row][column][player made this move]
+            int movesplayed[totallines][7];//movesplayed[row][column][gamer made this move][row of right or down box][col
             for(int i=0; i<totallines; i++)
             {
                 for(int j=0; j < 7; j++)
@@ -125,15 +123,16 @@ int main()
             gamer=1;
 
             gamer = gameloop(nb,mode,size,gamearr,totallines,nofmoves,&one.score,&two.score,one.moves,two.moves,one.name,two.name,gamer,movesplayed);
-            printf("\n\n enter 1 to return to main menu\n enter 2 to exit\n");
+            printf("\n\n enter 1 to return to main menu \n enter 2 to exit\n");
             while(1)
             {
                 int returnkey;
-                returnkey = readint();
-                if(returnkey==1)
+                returnkey =readint ();
+                if (returnkey==1)
                     break;
-                else if(returnkey ==2)
+                else if(returnkey==2)
                     return 0;
+
             }
 
 
@@ -172,4 +171,5 @@ int main()
 
 
     return 0;
+
 }

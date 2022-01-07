@@ -33,7 +33,6 @@
 		</Compiler>
 		<Unit filename="check_boxes.h" />
 		<Unit filename="color.h" />
-		<Unit filename="computerturn.h" />
 		<Unit filename="gamefunction.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
@@ -41,6 +40,7 @@
 		<Unit filename="player info.h" />
 		<Unit filename="printgame.h" />
 		<Unit filename="scannum.h" />
+		<Unit filename="undo.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

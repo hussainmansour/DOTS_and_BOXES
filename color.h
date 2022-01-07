@@ -9,11 +9,11 @@
 #define Brown           6
 #define Light Gray      7
 #define Dark Gray       8
-#define Light Blue      9
-#define Light Green     10
-#define Light Cyan      11
-#define Light Red       12
-#define Light Magenta   13
+#define LightBlue      9
+#define LightGreen     10
+#define LightCyan      11
+#define LightRed       12
+#define LightMagenta   13
 #define Yellow          14
 #define White           15
 

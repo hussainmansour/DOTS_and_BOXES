@@ -3,11 +3,11 @@
 
 
 typedef struct
-        {
-            char name[256];
-            int moves;
-            int score;
-        }player;
+{
+    char name[256];
+    int moves;
+    int score;
+} player;
 
 typedef struct
 {

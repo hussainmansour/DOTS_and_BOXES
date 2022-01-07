@@ -31,7 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="check_boxes.h" />
 		<Unit filename="color.h" />
+		<Unit filename="computerturn.h" />
+		<Unit filename="gamefunction.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

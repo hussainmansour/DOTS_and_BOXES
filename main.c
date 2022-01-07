@@ -2,9 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
+#include <time.h>
 #include "color.h"
 #include "player info.h"
-#include "scannum.h"
+#include "gamefunction.h"
+
+
 int main()
 {
 
@@ -14,8 +17,10 @@ int main()
 
         system("cls");
         int menu;
-        printf("\n\t\t\t Hope To Enjoy\n");
-        printf("\n  DOTES AND BOXES GAME\n\n\n\n\t new game (enter:1)\n\n \t load game (enter:2)\n\n \t top ten (enter:3)\n\n \t exit (enter:4)\n\n \t enter your choose :");
+        SetColor(Yellow);
+        printf("\n\t\t\t Hope To Enjoy\n\n \t\t\t DOTES AND BOXES GAME\n\n\n\n");         // ÃäÇ ÚÏáÊ ÇáÍÊÉ Ïí
+        SetColor(Green);
+        printf("\t new game (enter:1)\n\n \t load game (enter:2)\n\n \t top ten (enter:3)\n\n \t exit (enter:4)\n\n \t enter your choose :");
         menu=readint();
         system("cls");
 
@@ -23,13 +28,13 @@ int main()
         //mode is for 1 or 2 player
         //player is struct has name,score,move
 
-        int nb,mode;
+        int nb,mode,gamer;
         player one,two;
 
 
         if(menu == 1)   //for new game
         {
-
+            SetColor(Cyan);
             printf("\t choose the degree of difficulty\n\n Easy (enter:1):\n\n Medium (enter:2):\n\n Hard (enter:3):\n");
 
             while(1)   //check the nb boxes 1,2,3
@@ -38,7 +43,7 @@ int main()
                 if(nb>0 && nb<4)
                     break;
                 else
-                    printf("not valid choose");
+                    printf("not valid choose\n");
 
             }
 
@@ -69,11 +74,12 @@ int main()
 
             printf(" enter your name: ");
             gets(one.name);
-
+            strlwr(one.name);
             if(mode==2)
             {
                 printf(" \n enter the second name: ");
                 gets(two.name);
+                strlwr(two.name);
             }
             else
                 strcpy(two.name, "computer");
@@ -104,13 +110,31 @@ int main()
                     }
                 }
             }
-
             int totallines = 2*nb*(nb+1),nofmoves=0;
+            int movesplayed[totallines][7];//movesplayed[row][column][player made this move]
+            for(int i=0; i<totallines; i++)
+            {
+                for(int j=0; j < 7; j++)
+                    movesplayed[i][j]=0;
+            }
+
             one.score=0;
             two.score=0;
             one.moves= 0;
             two.moves = 0;
+            gamer=1;
 
+            gamer = gameloop(nb,mode,size,gamearr,totallines,nofmoves,&one.score,&two.score,one.moves,two.moves,one.name,two.name,gamer,movesplayed);
+            printf("\n\n enter 1 to return to main menu\n enter 2 to exit\n");
+            while(1)
+            {
+                int returnkey;
+                returnkey = readint();
+                if(returnkey==1)
+                    break;
+                else if(returnkey ==2)
+                    return 0;
+            }
 
 
 

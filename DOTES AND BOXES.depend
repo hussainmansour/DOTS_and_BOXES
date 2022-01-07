@@ -1,0 +1,66 @@
+# depslib dependency file v1.0
+1640622088 source:d:\code blocks\dots&boxes\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	"color.h"
+	"player info.h"
+	"scannum.h"
+	"gamefn.h"
+
+1640447211 d:\code blocks\dots&boxes\color.h
+
+1640447266 d:\code blocks\dots&boxes\player info.h
+
+1640447284 d:\code blocks\dots&boxes\scannum.h
+
+1640621275 d:\code blocks\dots&boxes\printgame.h
+	<time.h>
+
+1640626987 d:\code blocks\dots&boxes\gamefn.h
+	"scannum.h"
+	"printgame.h"
+	"color.h"
+
+1640695434 source:c:\program files\c  projects\еж Пе\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	<time.h>
+	"color.h"
+	"player info.h"
+	"scannum.h"
+
+1640695612 c:\program files\c  projects\еж Пе\color.h
+
+1640694603 c:\program files\c  projects\еж Пе\player info.h
+
+1640694613 c:\program files\c  projects\еж Пе\scannum.h
+
+1640799600 source:c:\program files\c  projects\dotes and boxes 2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	<time.h>
+	"color.h"
+	"player info.h"
+	"gamefunction.h"
+
+1640695612 c:\program files\c  projects\dotes and boxes 2\color.h
+
+1640694603 c:\program files\c  projects\dotes and boxes 2\player info.h
+
+1640903799 c:\program files\c  projects\dotes and boxes 2\gamefunction.h
+	"printgame.h"
+	"scannum.h"
+	"check_boxes.h"
+
+1640694613 c:\program files\c  projects\dotes and boxes 2\scannum.h
+
+1641457320 c:\program files\c  projects\dotes and boxes 2\printgame.h
+
+1640796631 c:\program files\c  projects\dotes and boxes 2\check_boxes.h
+

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include <windows.h>
 #include <time.h>
 #include "color.h"
@@ -74,11 +75,13 @@ int main()
             printf(" enter your name: ");
             gets(one.name);
             strlwr(one.name);
+            one.lenname=strlen(one.name);
             if(mode==2)
             {
                 printf(" \n enter the second name: ");
                 gets(two.name);
                 strlwr(two.name);
+                two.lenname=strlen(two.name);
             }
             else
                 strcpy(two.name, "computer");
@@ -123,7 +126,7 @@ int main()
             two.moves = 0;
             gamer=1;
 
-            gamer = gameloop(nb,mode,size,gamearr,totallines,nofmoves,&one.score,&two.score,one.moves,two.moves,one.name,two.name,gamer,movesplayed);
+            gamer = gameloop(nb,mode,size,gamearr,totallines,nofmoves,&one.score,&two.score,one.moves,two.moves,one.lenname,one.name,two.lenname,two.name,gamer,movesplayed);
             printf("\n\n enter 1 to return to main menu\n enter 2 to exit\n");
             while(1)
             {
@@ -144,22 +147,86 @@ int main()
 
         else if(menu==2)   //for load game
         {
+            int s_n ;
+            printf("select one of these files(1,2,3):\n");
+            s_n = readint();
+            if (s_n==1||s_n==2||s_n==3)
+            {
+                system("cls");
+                char fname[5];
+                sprintf(fname,"%d.txt",s_n);
+                FILE *load =fopen(fname,"r");
+                if (load ==NULL)
+                {
+                    printf("there is no existing file \n");
 
+                }
+                else
+                {
+                    fseek(load,0,SEEK_END);
+                    int fsize = ftell(load);
+                    if (fsize == 0)
+                    {   fclose (load);
+                        printf("file is empty\n");
+                        char runkey;
+                        scanf("%c", &runkey);
+                        continue;
+                    }
+                    else
+                    {
+                        fclose(load);
+                        load=fopen(fname,"r");
+
+                    }
+
+                    fread(&nb, sizeof(int), 1, load);
+                    fread(&mode, sizeof(int), 1, load);
+
+                    int size = 2 * nb +2, totallines = 2*nb*(nb+1), nofmoves;
+                    fread(&nofmoves,  sizeof(int), 1, load);
+                    fread(&one.moves, sizeof(int), 1, load);
+                    fread(&two.moves, sizeof(int), 1, load);
+                    fread(&one.score, sizeof(int), 1, load);
+                    fread(&two.score, sizeof(int), 1, load);
+                    fread(&gamer,     sizeof(int), 1, load);
+
+                    int movesplayed[totallines][7];
+                    fread(movesplayed, sizeof(int), totallines * 7, load);
+
+                    char gamearr[size][size];
+                    fread(gamearr, sizeof(char), size * size, load);
+
+                    fread(&one.lenname, sizeof(int), 1, load);
+                    fread(one.name, sizeof(char), one.lenname, load);
+                    one.name[one.lenname] = '\0';
+                    //we do not save computer if mode = 1
+                    if(mode == 2)
+                    {
+                        fread(&two.lenname, sizeof(int), 1, load);
+                        fread(two.name, sizeof(char), two.lenname, load);
+                        two.name[two.lenname] = '\0';
+                    }
+                    fclose(load);
+                    if (mode == 1)
+                    {
+                        strcpy(two.name, "computer");
+                    }
+                    two.lenname = strlen(two.name);
+                    gamer = gameloop(nb,mode,size,gamearr,totallines,nofmoves,&one.score,&two.score,one.moves,two.moves,one.lenname,one.name,two.lenname,two.name,gamer,movesplayed);
+                }
+
+
+            }
+            else
+            {
+                // if he enters wrong number
+                printf("there is no existing file \n");
+
+
+            }
         }
         else if(menu==3)     //for top ten
         {
-         //   sortusers(usersarray);
-            int i,j;
-            for(i=0; i<10; i++)
-            {
-                printf("%d.",i+1);
-                for(j=0; usersarray[i].name[j]!='\0'; j++)
-                    printf("%c",usersarray[i].name[j]);
-                printf("  his score is = %d\n",usersarray[i].score);
-            }
-            printf("\n press enter to return to main menu\n");
-            char returnkey;
-            scanf("%c",&returnkey);
 
         }
         else if(menu==4)  //for exit

@@ -93,10 +93,6 @@ void undo (int *row,int *col,int *noundo,int totallines,int movesplayed[totallin
         }
         *nofmoves=noofmoves ;
     }
-<<<<<<< HEAD
-=======
-    *nofmoves=noofmoves ;
->>>>>>> 452b33c6d4dea22d344ea32974e4fcf319c70482
 }
 
 

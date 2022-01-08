@@ -1,22 +1,22 @@
 # depslib dependency file v1.0
-1640622088 source:d:\code blocks\dots&boxes\main.c
+1641668567 source:d:\code blocks\dots&boxes\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	<ctype.h>
 	<windows.h>
+	<time.h>
 	"color.h"
 	"player info.h"
-	"scannum.h"
-	"gamefn.h"
+	"gamefunction.h"
 
-1640447211 d:\code blocks\dots&boxes\color.h
+1641578168 d:\code blocks\dots&boxes\color.h
 
-1640447266 d:\code blocks\dots&boxes\player info.h
+1641650791 d:\code blocks\dots&boxes\player info.h
 
-1640447284 d:\code blocks\dots&boxes\scannum.h
+1641578228 d:\code blocks\dots&boxes\scannum.h
 
-1640621275 d:\code blocks\dots&boxes\printgame.h
-	<time.h>
+1641578220 d:\code blocks\dots&boxes\printgame.h
 
 1640626987 d:\code blocks\dots&boxes\gamefn.h
 	"scannum.h"
@@ -70,4 +70,18 @@
 1641571519 c:\program files\c  projects\dotes and boxes 2\computerturn.h
 
 1641569745 c:\program files\c  projects\dotes and boxes 2\undo.h
+
+1641663305 d:\code blocks\dots&boxes\gamefunction.h
+	"printgame.h"
+	"scannum.h"
+	"check_boxes.h"
+	<time.h>
+	"undo.h"
+	"computerturn.h"
+
+1641578148 d:\code blocks\dots&boxes\check_boxes.h
+
+1641629356 d:\code blocks\dots&boxes\undo.h
+
+1641578177 d:\code blocks\dots&boxes\computerturn.h
 

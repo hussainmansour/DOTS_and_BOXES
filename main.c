@@ -11,7 +11,6 @@
 int main()
 {
 
-
     while(1)
     {
 
@@ -30,7 +29,7 @@ int main()
 
         int nb,mode,gamer;
         player one,two;
-
+        users usersarray[50] = {0};  //array of struct(name,score)
 
         if(menu == 1)   //for new game
         {
@@ -128,11 +127,11 @@ int main()
             printf("\n\n enter 1 to return to main menu\n enter 2 to exit\n");
             while(1)
             {
-                int returnkey;
-                returnkey = readint();
-                if(returnkey==1)
+                int key;
+                key = readint();
+                if(key==1)
                     break;
-                else if(returnkey ==2)
+                else if(key ==2)
                     return 0;
             }
 
@@ -149,6 +148,18 @@ int main()
         }
         else if(menu==3)     //for top ten
         {
+         //   sortusers(usersarray);
+            int i,j;
+            for(i=0; i<10; i++)
+            {
+                printf("%d.",i+1);
+                for(j=0; usersarray[i].name[j]!='\0'; j++)
+                    printf("%c",usersarray[i].name[j]);
+                printf("  his score is = %d\n",usersarray[i].score);
+            }
+            printf("\n press enter to return to main menu\n");
+            char returnkey;
+            scanf("%c",&returnkey);
 
         }
         else if(menu==4)  //for exit
@@ -162,14 +173,7 @@ int main()
             system("pause");
         }
 
-
-
     }
-
-
-
-
-
 
     return 0;
 }

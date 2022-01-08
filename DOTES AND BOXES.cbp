@@ -41,6 +41,7 @@
 		<Unit filename="player info.h" />
 		<Unit filename="printgame.h" />
 		<Unit filename="scannum.h" />
+		<Unit filename="undo.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

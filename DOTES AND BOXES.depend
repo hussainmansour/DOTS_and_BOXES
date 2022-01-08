@@ -39,7 +39,7 @@
 
 1640694613 c:\program files\c  projects\еж Пе\scannum.h
 
-1640799600 source:c:\program files\c  projects\dotes and boxes 2\main.c
+1641512900 source:c:\program files\c  projects\dotes and boxes 2\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -49,18 +49,25 @@
 	"player info.h"
 	"gamefunction.h"
 
-1640695612 c:\program files\c  projects\dotes and boxes 2\color.h
+1641512894 c:\program files\c  projects\dotes and boxes 2\color.h
 
-1640694603 c:\program files\c  projects\dotes and boxes 2\player info.h
+1641512895 c:\program files\c  projects\dotes and boxes 2\player info.h
 
-1640903799 c:\program files\c  projects\dotes and boxes 2\gamefunction.h
+1641571670 c:\program files\c  projects\dotes and boxes 2\gamefunction.h
 	"printgame.h"
 	"scannum.h"
 	"check_boxes.h"
+	<time.h>
+	"undo.h"
+	"computerturn.h"
 
 1640694613 c:\program files\c  projects\dotes and boxes 2\scannum.h
 
-1641457320 c:\program files\c  projects\dotes and boxes 2\printgame.h
+1641558522 c:\program files\c  projects\dotes and boxes 2\printgame.h
 
-1640796631 c:\program files\c  projects\dotes and boxes 2\check_boxes.h
+1641571519 c:\program files\c  projects\dotes and boxes 2\check_boxes.h
+
+1641571519 c:\program files\c  projects\dotes and boxes 2\computerturn.h
+
+1641569745 c:\program files\c  projects\dotes and boxes 2\undo.h
 

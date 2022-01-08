@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
+#include <time.h>
 #include "color.h"
 #include "player info.h"
 #include "gamefunction.h"
@@ -9,7 +10,6 @@
 
 int main()
 {
-
 
     while(1)
     {
@@ -29,7 +29,7 @@ int main()
 
         int nb,mode,gamer;
         player one,two;
-
+        users usersarray[50] = {0};  //array of struct(name,score)
 
         if(menu == 1)   //for new game
         {
@@ -73,11 +73,12 @@ int main()
 
             printf(" enter your name: ");
             gets(one.name);
-
+            strlwr(one.name);
             if(mode==2)
             {
                 printf(" \n enter the second name: ");
                 gets(two.name);
+                strlwr(two.name);
             }
             else
                 strcpy(two.name, "computer");
@@ -109,7 +110,7 @@ int main()
                 }
             }
             int totallines = 2*nb*(nb+1),nofmoves=0;
-            int movesplayed[totallines][7];//movesplayed[row][column][gamer made this move][row of right or down box][col
+            int movesplayed[totallines][7];//movesplayed[row][column][player made this move]
             for(int i=0; i<totallines; i++)
             {
                 for(int j=0; j < 7; j++)
@@ -123,16 +124,15 @@ int main()
             gamer=1;
 
             gamer = gameloop(nb,mode,size,gamearr,totallines,nofmoves,&one.score,&two.score,one.moves,two.moves,one.name,two.name,gamer,movesplayed);
-            printf("\n\n enter 1 to return to main menu \n enter 2 to exit\n");
+            printf("\n\n enter 1 to return to main menu\n enter 2 to exit\n");
             while(1)
             {
-                int returnkey;
-                returnkey =readint ();
-                if (returnkey==1)
+                int key;
+                key = readint();
+                if(key==1)
                     break;
-                else if(returnkey==2)
+                else if(key ==2)
                     return 0;
-
             }
 
 
@@ -148,6 +148,18 @@ int main()
         }
         else if(menu==3)     //for top ten
         {
+         //   sortusers(usersarray);
+            int i,j;
+            for(i=0; i<10; i++)
+            {
+                printf("%d.",i+1);
+                for(j=0; usersarray[i].name[j]!='\0'; j++)
+                    printf("%c",usersarray[i].name[j]);
+                printf("  his score is = %d\n",usersarray[i].score);
+            }
+            printf("\n press enter to return to main menu\n");
+            char returnkey;
+            scanf("%c",&returnkey);
 
         }
         else if(menu==4)  //for exit
@@ -161,15 +173,7 @@ int main()
             system("pause");
         }
 
-
-
     }
 
-
-
-
-
-
     return 0;
-
 }

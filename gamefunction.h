@@ -2,12 +2,20 @@
 #define GAMEFUNCTION_H_INCLUDED
 #include "printgame.h"
 #include "scannum.h"
-#include"check_boxes.h"
-#include<time.h>
-#include"undo.h"
+#include "check_boxes.h"
+#include <time.h>
+#include "undo.h"
+#include "computerturn.h"
+
+
+
+
+
 
 int gameloop(int nb,int mode,int size,char gamearr[size][size],int totallines,int nofmoves,int *score1,int *score2, int moves1, int moves2,char name1[],char name2[],int gamer,int movesplayed[totallines][7])
-{   time_t t1 =time(0);int noundo;  //30/12/2021
+{
+    time_t t1 =time(0);
+    int noundo;  //30/12/2021
     //initializing the arrays of complete game
     int j, i,availablemove=1;
     char h = 205, v = 186, dot = 254;  //205 186 254
@@ -34,8 +42,8 @@ int gameloop(int nb,int mode,int size,char gamearr[size][size],int totallines,in
         }
     }
 
-    int row,col,gameon=1,check=0 ;
-    printgrid(size,gamearr,name1,name2,moves1,moves2,*score1,*score2,totallines,nofmoves,t1);
+    int row,col,gameon=1,check=0,ai ;
+    printgrid(size,gamearr,name1,name2,moves1,moves2,*score1,*score2,totallines,nofmoves,t1,movesplayed);
     while(gameon)
     {
         printf("\n\n\tenter number of row and column by hexadecimal digits\nenter 0, 0 for undo\t1, 1 for redo\t 2, 2 for save\t 3, 3 for main menu\n");
@@ -48,6 +56,7 @@ int gameloop(int nb,int mode,int size,char gamearr[size][size],int totallines,in
 
         if(gamer==2 && mode == 1) //computer turn function
         {
+            compturn(&row,&col,size,gamearr,compgame,gamer,totallines,nofmoves,movesplayed,v,h,dot);
 
         }
         else
@@ -68,11 +77,11 @@ int gameloop(int nb,int mode,int size,char gamearr[size][size],int totallines,in
 
         SetColor(White);
         system("cls");
-
+        ai =0;
         if(row==0 && col==0)  //function of undo
 
         {
-           undo ( &row, &col,&noundo,totallines,movesplayed,size ,gamearr,&moves1,&moves2,&nofmoves,score1,score2,&gamer , mode );//30/12/2021
+            undo ( &row, &col,&noundo,totallines,movesplayed,size,gamearr,&moves1,&moves2,&nofmoves,score1,score2,&gamer, mode );  //30/12/2021
 
         }
         else if(row == 2 && col == 2)
@@ -90,22 +99,24 @@ int gameloop(int nb,int mode,int size,char gamearr[size][size],int totallines,in
         else if( row > 0 && row < size && col > 0 && col < size )
         {
 
-
             if(compgame[row][col] == h || compgame[row][col] == v || (row == 1 && col == 1))
             {
                 if (row == 1 && col == 1)  //for redo
                 {
-                      if (noundo>0)
-                      {
-                           row =movesplayed[nofmoves][0];
-                           col=movesplayed[nofmoves][1];
-                           gamer=movesplayed[nofmoves][2];
-                           noundo--;
-                      }else{printf("there is no moves to redo ");
-                      printgrid(size,gamearr,name1,name2,moves1,moves2,*score1,*score2,totallines,nofmoves,t1);
-                      continue;
+                    if (noundo>0)
+                    {
+                        row =movesplayed[nofmoves][0];
+                        col=movesplayed[nofmoves][1];
+                        gamer=movesplayed[nofmoves][2];
+                        noundo--;
+                    }
+                    else
+                    {
+                        printf("there is no moves to redo ");
+                        printgrid(size,gamearr,name1,name2,moves1,moves2,*score1,*score2,totallines,nofmoves,t1,movesplayed);
+                        continue;
 
-                      }
+                    }
                 }
 
                 //check if we played this move before
@@ -131,17 +142,13 @@ int gameloop(int nb,int mode,int size,char gamearr[size][size],int totallines,in
                         moves2++;
                     nofmoves++;
 
-
-                    //check=checkbox();    //function
-                   check=checkboxes ( row, col, size,compgame, gamearr, gamer,totallines,movesplayed,nofmoves);
-
+                    check=checkboxes ( row, col, size,compgame, gamearr, gamer,totallines,movesplayed,nofmoves,ai);
                     if(check)
                     {
                         if(gamer == 1)
                             *score1 += check;
                         else
                             *score2 += check;
-
 
                     }
                     else
@@ -163,7 +170,7 @@ int gameloop(int nb,int mode,int size,char gamearr[size][size],int totallines,in
         else
             printf("\nnot available move\n\n");
 
-        printgrid(size,gamearr,name1,name2,moves1,moves2,*score1,*score2,totallines,nofmoves,t1);
+        printgrid(size,gamearr,name1,name2,moves1,moves2,*score1,*score2,totallines,nofmoves,t1,movesplayed);
 
         if(nofmoves == totallines)  //end the game
         {
@@ -172,14 +179,14 @@ int gameloop(int nb,int mode,int size,char gamearr[size][size],int totallines,in
             if(*score1 > *score2)
             {
                 SetColor(Blue);
-                printf("congratulation %s you are win", name1);
+                printf("congratulation %s you are the winner", name1);
                 SetColor(Green);
                 gamer = 1;
             }
             else if(*score2 > *score1)
             {
                 SetColor(Red);
-                printf("congratulation %s you are win", name2);
+                printf("congratulation %s you are the winner", name2);
                 SetColor(Green);
                 gamer = 2;
             }
@@ -192,20 +199,7 @@ int gameloop(int nb,int mode,int size,char gamearr[size][size],int totallines,in
         }
 
     }
-
+    //return gamer;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #endif // GAMEFUNCTION_H_INCLUDED

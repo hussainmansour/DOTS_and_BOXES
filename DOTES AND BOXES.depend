@@ -1,20 +1,21 @@
 # depslib dependency file v1.0
-1640868582 source:d:\code blocks\dots&boxes\main.c
+1640622088 source:d:\code blocks\dots&boxes\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<windows.h>
 	"color.h"
 	"player info.h"
-	"gamefunction.h"
+	"scannum.h"
+	"gamefn.h"
 
-1640794120 d:\code blocks\dots&boxes\color.h
+1640447211 d:\code blocks\dots&boxes\color.h
 
-1640794200 d:\code blocks\dots&boxes\player info.h
+1640447266 d:\code blocks\dots&boxes\player info.h
 
-1640794210 d:\code blocks\dots&boxes\scannum.h
+1640447284 d:\code blocks\dots&boxes\scannum.h
 
-1640885884 d:\code blocks\dots&boxes\printgame.h
+1640621275 d:\code blocks\dots&boxes\printgame.h
 	<time.h>
 
 1640626987 d:\code blocks\dots&boxes\gamefn.h
@@ -38,7 +39,7 @@
 
 1640694613 c:\program files\c  projects\еж Пе\scannum.h
 
-1640732486 source:c:\program files\c  projects\dotes and boxes 2\main.c
+1641512900 source:c:\program files\c  projects\dotes and boxes 2\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -48,26 +49,25 @@
 	"player info.h"
 	"gamefunction.h"
 
-1640695612 c:\program files\c  projects\dotes and boxes 2\color.h
+1641512894 c:\program files\c  projects\dotes and boxes 2\color.h
 
-1640694603 c:\program files\c  projects\dotes and boxes 2\player info.h
+1641512895 c:\program files\c  projects\dotes and boxes 2\player info.h
 
-1640787411 c:\program files\c  projects\dotes and boxes 2\gamefunction.h
-	"printgame.h"
-	"scannum.h"
-
-1640694613 c:\program files\c  projects\dotes and boxes 2\scannum.h
-
-1640769132 c:\program files\c  projects\dotes and boxes 2\printgame.h
-
-1640904376 d:\code blocks\dots&boxes\gamefunction.h
+1641571670 c:\program files\c  projects\dotes and boxes 2\gamefunction.h
 	"printgame.h"
 	"scannum.h"
 	"check_boxes.h"
 	<time.h>
 	"undo.h"
+	"computerturn.h"
 
-1640891956 d:\code blocks\dots&boxes\check_boxes.h
+1640694613 c:\program files\c  projects\dotes and boxes 2\scannum.h
 
-1640892139 d:\code blocks\dots&boxes\undo.h
+1641558522 c:\program files\c  projects\dotes and boxes 2\printgame.h
+
+1641571519 c:\program files\c  projects\dotes and boxes 2\check_boxes.h
+
+1641571519 c:\program files\c  projects\dotes and boxes 2\computerturn.h
+
+1641569745 c:\program files\c  projects\dotes and boxes 2\undo.h
 

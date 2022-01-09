@@ -5,14 +5,18 @@
 typedef struct
 {
     char name[256];
+    int lenname;
     int moves;
     int score;
+
 } player;
 
 typedef struct
 {
     char name[256];
+    int namelen;
     int score;
+
 } users;
 
 

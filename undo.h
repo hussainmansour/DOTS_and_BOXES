@@ -22,7 +22,7 @@ void undo (int *row,int *col,int *noundo,int totallines,int movesplayed[totallin
 
             if (movesplayed[noofmoves-1][3]!=0)       //check if won
             {
-                gamearr[movesplayed[noofmoves-1][3]][movesplayed[noofmoves-1][4]]=' '; // remove the closed box
+                gamearr[movesplayed[noofmoves-1][3]][movesplayed[noofmoves-1][4]]=' ';
                 if (*gamer==1)
                 {
                     *score1-=1;
@@ -35,7 +35,7 @@ void undo (int *row,int *col,int *noundo,int totallines,int movesplayed[totallin
 
             if (movesplayed[noofmoves-1][5]!=0)
             {
-                gamearr[movesplayed[noofmoves-1][5]][movesplayed[noofmoves-1][6]]=' ';// remove the closed box
+                gamearr[movesplayed[noofmoves-1][5]][movesplayed[noofmoves-1][6]]=' ';
                 if (*gamer==1)
                 {
                     *score1-=1;
@@ -48,55 +48,7 @@ void undo (int *row,int *col,int *noundo,int totallines,int movesplayed[totallin
             *noundo+=1;  //help in redo
             noofmoves-=1;
         }
-        else
-        {
-            while(1)
-            {
-                if (movesplayed[noofmoves-1][2]==1)  //to go back to your turn again // that won't happen in every time computer will be the last player
-                {
-                    gamearr[movesplayed[noofmoves-1][0]][movesplayed[noofmoves-1][1]]=' ';    // remove last lines
-                    if (movesplayed[noofmoves-1][3]!=0)                                   // check if the last move closed the box
-                    {
-                        gamearr[movesplayed[noofmoves-1][5]][movesplayed[noofmoves-1][6]]=' '; // remove the box
-                        *score1-=1;                                                        //reducing the score
-                    }
-                    if (movesplayed[noofmoves-1][5]!=0)                                   // check if the last move closed the box
-                    {
-                        gamearr[movesplayed[noofmoves-1][5]][movesplayed[noofmoves-1][6]]=' ';// remove the box
-                        *score1-=1;                                                       //reducing the score
-                    }
-                    *moves1-=1;
-                    *noundo+=1;
-                    noofmoves-=1;
-                    *gamer=1;
-                    break;
-                }
-                else
-                {
-                    // removing the computer moves
-                    gamearr[movesplayed[noofmoves-1][0]][movesplayed[noofmoves-1][1]]=' ';
-                    if (movesplayed[noofmoves-1][3]!=0)
-                    {
-                        gamearr[movesplayed[noofmoves-1][5]][movesplayed[noofmoves-1][6]]=' ';// remove the box
-                        *score2-=1;
-                    }
-                    if (movesplayed[noofmoves-1][5]!=0)
-                    {
-                        gamearr[movesplayed[noofmoves-1][5]][movesplayed[noofmoves-1][6]]=' ';// remove the box
-                        *score2-=1;
-                    }
-                    *moves2-=1;
-                    noofmoves-=1;
-                }
 
-            }
-        }
-        *nofmoves=noofmoves ;
     }
-<<<<<<< HEAD
-=======
     *nofmoves=noofmoves ;
->>>>>>> 452b33c6d4dea22d344ea32974e4fcf319c70482
 }
-
-

@@ -7,7 +7,10 @@
 #include "undo.h"
 #include "computerturn.h"
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c0a97db25d2cc2624deec75f9960ea755266227d
 void sortusers ( users list[50])   // sort the user according to score used in displaying top 10
 {
     int i, j;
@@ -23,7 +26,10 @@ void sortusers ( users list[50])   // sort the user according to score used in d
             }
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c0a97db25d2cc2624deec75f9960ea755266227d
 
 
 int gameloop(int nb,int mode,int size,char gamearr[size][size],int totallines,int nofmoves,int *score1,int *score2, int moves1, int moves2,int lenname1,char name1[lenname1],int lenname2,char name2[lenname2],int gamer,int movesplayed[totallines][7])

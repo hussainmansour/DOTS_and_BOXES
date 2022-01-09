@@ -2,6 +2,7 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+<<<<<<< HEAD
 	<File name="undo.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="3667" topLine="61" />
@@ -47,4 +48,6 @@
 			<Cursor1 position="3" topLine="0" />
 		</Cursor>
 	</File>
+=======
+>>>>>>> c0a97db25d2cc2624deec75f9960ea755266227d
 </CodeBlocks_layout_file>

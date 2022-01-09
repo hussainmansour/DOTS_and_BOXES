@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1641668567 source:d:\code blocks\dots&boxes\main.c
+1641744430 source:d:\code blocks\dots&boxes\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -71,7 +71,7 @@
 
 1641569745 c:\program files\c  projects\dotes and boxes 2\undo.h
 
-1641663305 d:\code blocks\dots&boxes\gamefunction.h
+1641685898 d:\code blocks\dots&boxes\gamefunction.h
 	"printgame.h"
 	"scannum.h"
 	"check_boxes.h"

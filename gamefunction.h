@@ -8,7 +8,21 @@
 #include "computerturn.h"
 
 
-
+void sortusers ( users list[50])   // sort the user according to score used in displaying top 10
+{
+    int i, j;
+    users temp;
+    for(i = 0; i < 50-1; i++)
+    {
+        for(j = 0; j < 50-1-i; j++)
+            if(list[j].score < list[j+1].score)  //descending way
+            {
+                temp = list[j];
+                list[j] = list[j+1];
+                list[j+1] = temp;
+            }
+    }
+}
 
 
 
@@ -97,7 +111,6 @@ int gameloop(int nb,int mode,int size,char gamearr[size][size],int totallines,in
                     char fname[5];
                     sprintf(fname,"%d.txt",s_n);
                     FILE *save=fopen(fname,"w");
-                    //fwrite(&loaded, sizeof(int), 1, save);
                     fwrite(&nb, sizeof(int), 1, save);
                     fwrite(&mode,sizeof(int), 1, save);
                     fwrite(&nofmoves,sizeof(int), 1, save);
@@ -238,11 +251,13 @@ int gameloop(int nb,int mode,int size,char gamearr[size][size],int totallines,in
                 printf("Tie Game");
                 gamer = 0;
             }
+
             return gamer;
+
         }
 
     }
-    //return gamer;
+    return gamer;
 }
 
 #endif // GAMEFUNCTION_H_INCLUDED

@@ -1,0 +1,17 @@
+
+
+				 1 2 3 4 5 
+ 				1þอออþอออþ
+ 				2บ   บ   บ
+ 				3þอออþอออþ
+ 				4บ        
+ 				5þ   þ   þ
+
+
+ 	 player one name:1 		player two name:computer
+
+	number of moves player one:3	number of moves player two :5
+
+	score player's one=0		 score player's two=2
+
+	Number of remaining lines:4		time=00:09

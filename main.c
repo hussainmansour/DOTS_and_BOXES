@@ -139,177 +139,12 @@ int main()
             two.moves = 0;
             gamer=1;
 
-<<<<<<< HEAD
-            gamer = gameloop(nb,mode,size,gamearr,totallines,nofmoves,&one.score,&two.score,one.moves,two.moves,one.name,two.name,gamer,movesplayed);
-
-        }
-
-
-
-
-        else if(menu==2)   //for load game
-        {
-
-        }
-
-        if(menu == 1 || menu == 2)
-        {
-            if (gamer == 1)
-            {
-                int i = 0, m = 0,nfound=1;
-                for(i=0; i<50; i++)      //check if he played before
-                {
-                    if(strcmp(one.name,usersarray[i].name) == 0)
-                    {
-                        m = 1;
-                        break;
-                    }
-
-                }
-                if (m)
-                {
-                    //if he played before choose the bigger score
-                    if(usersarray[i].score < one.score)
-                    {
-                        usersarray[i].score = one.score;
-                    }
-                }
-                else
-                {
-                    for(int k =0; k<50; k++)
-                    {
-
-                        if(usersarray[k].score==0)
-                        {
-                            nfound=0;
-                            usersarray[k].namelen = one.lenname;
-                            strcpy(usersarray[k].name,one.name);
-                            usersarray[k].score = one.score;
-                            break;
-                        }
-                    }
-                    if(nfound)
-                    {
-                        for(int k=0; k<50; k++)
-                        {
-
-                            if(usersarray[k].score < one.score)
-                            {
-                                usersarray[k].namelen = one.lenname;
-                                strcpy(usersarray[k].name,one.name);
-                                usersarray[k].score = one.score;
-                                break;
-                            }
-
-                        }
-
-                    }
-
-                }
-
-
-
-            }
-            //if the winner is the computer so we will not save it
-            else if (gamer == 2 && mode == 2)
-            {
-
-                int i = 0, m = 0,nfound=1;
-                for(i=0; i<50; i++)      //check if he played before
-                {
-                    if(strcmp(two.name,usersarray[i].name) == 0)
-                    {
-                        m = 1;
-                        break;
-                    }
-
-                }
-                if (m)
-                {
-                    //if he played before choose the bigger score
-                    if(usersarray[i].score < two.score)
-                    {
-                        usersarray[i].score = two.score;
-                    }
-                }
-                else
-                {
-                    for(int k =0; k<50; k++)
-                    {
-
-                        if(usersarray[k].score==0)
-                        {
-                            nfound=0;
-                            usersarray[k].namelen = two.lenname;
-                            strcpy(usersarray[k].name,two.name);
-                            usersarray[k].score = two.score;
-                            break;
-                        }
-                    }
-                    if(nfound)
-                    {
-                        for(int k=0; k<50; k++)
-                        {
-
-                            if(usersarray[k].score < two.score)
-                            {
-                                usersarray[k].namelen = two.lenname;
-                                strcpy(usersarray[k].name,two.name);
-                                usersarray[k].score = two.score;
-                                break;
-                            }
-
-                        }
-
-                    }
-
-                }
-
-            }
-
-
-            //save it in file.
-
-
-
-
-
-
-=======
             gamer = gameloop(nb,mode,size,gamearr,totallines,nofmoves,&one.score,&two.score,one.moves,two.moves,one.lenname,one.name,two.lenname,two.name,gamer,movesplayed);
-<<<<<<< HEAD
-=======
->>>>>>> 92844db14f7a4dde31101e97f238012080733955
-            printf("\n\n enter 1 to return to main menu\n enter 2 to exit\n");
-            while(1)
-            {
-                int key;
-                key = readint();
-                if(key==1)
-                    break;
-                else if(key ==2)
-                    return 0;
-            }
->>>>>>> c0a97db25d2cc2624deec75f9960ea755266227d
+
+
 
         }
 
-<<<<<<< HEAD
-        else if(menu==3)     //for top ten
-        {
-            sortusers(usersarray);
-            int i,j;
-            for(i=0; i<10; i++)
-            {
-                printf("%d.",i+1);
-                for(j=0; usersarray[i].name[j]!='\0'; j++)
-                    printf("%c",usersarray[i].name[j]);
-                printf("  his score is = %d\n",usersarray[i].score);
-            }
-            printf("\n press enter to return to main menu\n");
-            char returnkey;
-            scanf("%c",&returnkey);
-=======
 
 
 
@@ -540,7 +375,6 @@ int main()
         }
         else if(menu==3)     //for top ten
         {
->>>>>>> 92844db14f7a4dde31101e97f238012080733955
 
             sortusers(usersarray);
             int i,j;

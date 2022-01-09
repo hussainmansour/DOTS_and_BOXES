@@ -24,10 +24,10 @@ void sortusers ( users list[50])   // sort the user according to score used in d
 }
 
 
-int gameloop(int nb,int mode,int size,char gamearr[size][size],int totallines,int nofmoves,int *score1,int *score2, int moves1, int moves2,char name1[],char name2[],int gamer,int movesplayed[totallines][7])
+int gameloop(int nb,int mode,int size,char gamearr[size][size],int totallines,int nofmoves,int *score1,int *score2, int moves1, int moves2,int lenname1,char name1[lenname1],int lenname2,char name2[lenname2],int gamer,int movesplayed[totallines][7])
 {
     time_t t1 =time(0);
-    int noundo;  //30/12/2021
+    int noundo =0;  //30/12/2021
     //initializing the arrays of complete game
     int j, i,availablemove=1;
     char h = 205, v = 186, dot = 254;  //205 186 254
@@ -96,11 +96,49 @@ int gameloop(int nb,int mode,int size,char gamearr[size][size],int totallines,in
             undo ( &row, &col,&noundo,totallines,movesplayed,size,gamearr,&moves1,&moves2,&nofmoves,score1,score2,&gamer, mode );  //30/12/2021
 
         }
-        else if(row == 2 && col == 2)
+        else if(row == 2 && col == 2)                //save game
         {
-            //save game
+            int s_n;
+            printf("chose file you want to save \n (1 or 2 or 3):\n ");
 
+            while(1)
+            { s_n=readint();
+                if (s_n==1||s_n==2||s_n==3)
+                {
 
+                    char fname[5];
+                    sprintf(fname,"%d.txt",s_n);
+                    FILE *save=fopen(fname,"w");
+                    //fwrite(&loaded, sizeof(int), 1, save);
+                    fwrite(&nb, sizeof(int), 1, save);
+                    fwrite(&mode,sizeof(int), 1, save);
+                    fwrite(&nofmoves,sizeof(int), 1, save);
+                    fwrite(&moves1,sizeof(int), 1, save);
+                    fwrite(&moves2,sizeof(int), 1, save);
+                    fwrite(score1,sizeof(int), 1, save);
+                    fwrite(score2,sizeof(int), 1, save);
+                    fwrite(&gamer,sizeof(int), 1, save);
+                    fwrite(movesplayed,sizeof(int), totallines * 7, save);
+                    fwrite(gamearr, sizeof(char), size * size, save);
+                    fwrite(&lenname1, sizeof(int), 1, save);
+                    fwrite(name1, sizeof(char), lenname1, save);
+                    if(mode == 2)
+                        fwrite(&lenname2, sizeof(int), 1, save);
+                    fwrite(name2, sizeof(char), lenname2, save);
+                    fclose(save);
+                    printf("saved to %d.txt\n", s_n);
+                    system("pause");
+                    printgrid(size,gamearr,name1,name2,moves1,moves2,*score1,*score2,totallines,nofmoves,t1,movesplayed);
+                    system("cls");
+                    break;
+                }
+
+                else
+                {
+                    printf("\ninvalid file\n");
+
+                }
+            }
         }
         else if (row == 3 && col == 3) //if user want to return to main menu
         {
@@ -129,6 +167,11 @@ int gameloop(int nb,int mode,int size,char gamearr[size][size],int totallines,in
                         continue;
 
                     }
+
+                }
+                else if ( gamer==1)
+                {
+                    noundo=0;
                 }
 
                 //check if we played this move before
